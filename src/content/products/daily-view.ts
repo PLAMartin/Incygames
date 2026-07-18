@@ -13,6 +13,7 @@ export const dailyView: Product = {
   displayOrder: 1,
 
   altText: "Daily View logo",
+  logoPath: "/images/products/daily-view/icon.png",
 
   websiteUrl: "https://www.dailyview.org",
   ctaLabel: "Visit Daily View",

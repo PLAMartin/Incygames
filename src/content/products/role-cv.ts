@@ -13,6 +13,7 @@ export const roleCv: Product = {
   displayOrder: 2,
 
   altText: "Role CV logo",
+  logoPath: "/images/products/role-cv/icon.png",
 
   websiteUrl: "https://www.rolecv.com",
   ctaLabel: "Explore Role CV",

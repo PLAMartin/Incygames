@@ -23,7 +23,7 @@ export default function PrivacyPage() {
         >
           Privacy policy
         </h1>
-        <p className="text-text-secondary mt-4">Last updated: 17 July 2026</p>
+        <p className="text-text-secondary mt-4">Last updated: 18 July 2026</p>
 
         <div className="text-text-secondary mt-10 space-y-8 text-lg">
           <section>
@@ -84,8 +84,16 @@ export default function PrivacyPage() {
               Analytics
             </h2>
             <p className="mt-3">
-              This website does not currently use any analytics or tracking
-              technology.
+              With your consent, this website uses Google Analytics to
+              understand how visitors use the site. Google Analytics is only
+              loaded, and its cookies are only set, if you accept them via the
+              cookie banner shown on your first visit. You can change your
+              choice at any time using &ldquo;Manage cookie
+              preferences&rdquo; in the footer. See our{" "}
+              <a href="/cookies" className="text-accent underline">
+                cookie policy
+              </a>{" "}
+              for details of the cookies involved.
             </p>
           </section>
 

@@ -22,22 +22,68 @@ export default function CookiesPage() {
         >
           Cookie policy
         </h1>
-        <p className="text-text-secondary mt-4">Last updated: 17 July 2026</p>
+        <p className="text-text-secondary mt-4">Last updated: 18 July 2026</p>
 
         <div className="text-text-secondary mt-10 space-y-8 text-lg">
           <section>
             <p>
-              This website does not currently set any cookies of its own, and
-              does not use any analytics or advertising technology. The contact
-              form does not submit data to a server, so no form-related cookies
-              are set either.
+              This website does not set any cookies of its own. The contact
+              form does not submit data to a server, so no form-related
+              cookies are set either. We do use Google Analytics, but only
+              with your consent &mdash; see below.
             </p>
+          </section>
+
+          <section>
+            <h2 className="text-text-primary text-2xl font-semibold">
+              Cookie consent
+            </h2>
             <p className="mt-3">
-              If Incygames later introduces analytics, this page will be updated
-              to list the cookies used, their purpose, provider and duration,
-              and a cookie consent banner will be added allowing you to accept
-              or reject non-essential cookies before they are set.
+              On your first visit, a banner asks whether you accept or reject
+              analytics cookies. Google Analytics is not loaded, and no
+              analytics cookies are set, unless you choose &ldquo;Accept&rdquo;.
+              You can change your choice at any time using &ldquo;Manage
+              cookie preferences&rdquo; in the footer, which reopens the
+              banner.
             </p>
+          </section>
+
+          <section>
+            <h2 className="text-text-primary text-2xl font-semibold">
+              Analytics cookies (only if you accept)
+            </h2>
+            <p className="mt-3">
+              If you accept, Google Analytics (Google Ireland Limited) sets
+              the following cookies to distinguish visitors and measure site
+              usage:
+            </p>
+            <div className="border-border mt-4 overflow-x-auto rounded-md border">
+              <table className="w-full text-left text-base">
+                <thead className="bg-background-secondary text-text-primary">
+                  <tr>
+                    <th className="px-4 py-2 font-semibold">Name</th>
+                    <th className="px-4 py-2 font-semibold">Purpose</th>
+                    <th className="px-4 py-2 font-semibold">Duration</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-border border-t">
+                    <td className="px-4 py-2">_ga</td>
+                    <td className="px-4 py-2">
+                      Distinguishes unique visitors
+                    </td>
+                    <td className="px-4 py-2">2 years</td>
+                  </tr>
+                  <tr className="border-border border-t">
+                    <td className="px-4 py-2">_ga_*</td>
+                    <td className="px-4 py-2">
+                      Persists session state for this property
+                    </td>
+                    <td className="px-4 py-2">2 years</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </section>
 
           <section>

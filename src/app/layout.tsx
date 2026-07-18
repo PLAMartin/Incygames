@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
-import Script from "next/script";
 import { SiteHeader } from "@/components/navigation/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { StructuredData } from "@/components/seo/StructuredData";
+import { CookieConsentBanner } from "@/components/analytics/CookieConsentBanner";
 import { buildMetadata } from "@/lib/metadata";
 import "./globals.css";
 
@@ -27,17 +27,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${bodyFont.variable} h-full antialiased`}>
       <body className="bg-background-primary text-text-primary flex min-h-full flex-col">
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-HDZ3JKQSJV"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-
-gtag('config', 'G-HDZ3JKQSJV');`}
-        </Script>
         <StructuredData />
         <a
           href="#main-content"
@@ -50,6 +39,7 @@ gtag('config', 'G-HDZ3JKQSJV');`}
           {children}
         </main>
         <SiteFooter />
+        <CookieConsentBanner />
       </body>
     </html>
   );

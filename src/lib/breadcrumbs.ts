@@ -8,6 +8,7 @@ export const breadcrumbTrails = {
   products: [HOME, PRODUCTS],
   about: [HOME, { name: "About", path: "/about" }],
   contact: [HOME, { name: "Contact", path: "/contact" }],
+  press: [HOME, { name: "Press", path: "/press" }],
   privacy: [HOME, { name: "Privacy", path: "/privacy" }],
   cookies: [HOME, { name: "Cookies", path: "/cookies" }],
   terms: [HOME, { name: "Terms", path: "/terms" }],

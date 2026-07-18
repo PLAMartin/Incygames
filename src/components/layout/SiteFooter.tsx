@@ -6,6 +6,7 @@ import { getAllProducts } from "@/lib/products";
 
 const COMPANY_LINKS = [
   { label: "About", href: "/about" },
+  { label: "Press", href: "/press" },
   { label: "Contact", href: "/contact" },
 ];
 

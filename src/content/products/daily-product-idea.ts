@@ -8,7 +8,7 @@ export const dailyProductIdea: Product = {
   summary:
     "A daily source of evaluated, practical product ideas for people who want to stop searching and start building.",
   category: "entrepreneurship",
-  status: "available",
+  status: "in-development",
   featured: true,
   displayOrder: 3,
 
@@ -25,7 +25,7 @@ export const dailyProductIdea: Product = {
     "Aspiring founders looking for a starting point",
     "Indie builders wanting a steady stream of practical ideas",
   ],
-  currentStage: "Available now at dailyproductidea.com",
+  currentStage: "In development — live at dailyproductidea.com",
 
   themeKey: "daily-product-idea",
   lastReviewed: "2026-07-17",

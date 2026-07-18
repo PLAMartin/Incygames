@@ -8,7 +8,7 @@ export const conxy: Product = {
   summary:
     "A simple connection-based puzzle game built around completing challenges in as few moves as possible.",
   category: "game",
-  status: "available",
+  status: "in-development",
   featured: true,
   displayOrder: 4,
 
@@ -25,7 +25,7 @@ export const conxy: Product = {
     "Casual puzzle game players",
     "People looking for a short, focused game break",
   ],
-  currentStage: "Available now at conxy.co",
+  currentStage: "In development — live at conxy.co",
 
   themeKey: "conxy",
   lastReviewed: "2026-07-17",

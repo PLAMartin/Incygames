@@ -13,9 +13,9 @@ const bodyFont = Geist({
 });
 
 export const metadata: Metadata = buildMetadata({
-  title: "Incygames | Simple, useful software",
+  title: "Incygames | Useful software for real-world problems",
   description:
-    "Incygames develops simple, useful and fun software for real-world problems, including Daily View, Role CV, Daily Product Idea and Conxy.",
+    "Incygames is a founder-led product studio in Bath creating and testing focused digital products including Daily View, Role CV, Daily Product Idea and Conxy.",
   path: "/",
 });
 

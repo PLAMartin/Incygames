@@ -39,23 +39,20 @@ export default function PressPage() {
           </h2>
           <p className="text-text-secondary mt-3 text-lg">
             Incygames is an independent software company based in Bath, UK. It
-            develops focused digital products designed to make particular
-            tasks clearer, easier or more enjoyable, starting from an
-            identifiable customer problem and building gradually in response
-            to evidence.
+            develops focused digital products designed to make particular tasks
+            clearer, easier or more enjoyable, starting from an identifiable
+            customer problem and building gradually in response to evidence.
           </p>
         </section>
 
         <section className="mt-12">
-          <h2 className="text-text-primary text-2xl font-semibold">
-            Founder
-          </h2>
+          <h2 className="text-text-primary text-2xl font-semibold">Founder</h2>
           <p className="text-text-secondary mt-3 text-lg">
             Incygames was founded by Phil Martin, following more than 30 years
-            in telecommunications spanning strategy, operations and
-            commercial roles, alongside a background in technology and
-            computing. Incygames is currently founder-led and works with
-            specialist collaborators and technology partners where required.
+            in telecommunications spanning strategy, operations and commercial
+            roles, alongside a background in technology and computing. Incygames
+            is currently founder-led and works with specialist collaborators and
+            technology partners where required.
           </p>
           <p className="text-text-secondary mt-3 text-lg">
             Phil writes about product development at{" "}
@@ -85,8 +82,8 @@ export default function PressPage() {
             Company details
           </h2>
           <p className="text-text-secondary mt-3 text-lg">
-            Incygames Ltd is a company registered in England and Wales.
-            Company number 10517638.
+            Incygames Ltd is a company registered in England and Wales. Company
+            number 10517638.
           </p>
         </section>
       </div>
@@ -125,8 +122,8 @@ export default function PressPage() {
           Media enquiries
         </h2>
         <p className="text-text-secondary mt-3 text-lg">
-          For interviews, quotes or further information, get in touch using
-          the contact form.
+          For interviews, quotes or further information, get in touch using the
+          contact form.
         </p>
         <div className="mt-6">
           <Button href="/contact" variant="primary">

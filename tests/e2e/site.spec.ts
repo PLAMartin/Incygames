@@ -7,7 +7,7 @@ test.use({ viewport: { width: 1280, height: 800 } });
 test("homepage loads and explains Incygames", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByRole("heading", { level: 1 })).toContainText(
-    "Small software products for real-world problems.",
+    "Useful software, built one real problem at a time.",
   );
 });
 
@@ -48,17 +48,37 @@ test("external product CTAs point at the configured product domains", async ({
 }) => {
   await page.goto("/products");
 
-  const expectations: Record<string, string> = {
-    "Daily View": "dailyview.org",
-    "Role CV": "rolecv.com",
-    "Daily Product Idea": "dailyproductidea.com",
-    Conxy: "conxy.co",
-  };
+  const expectations: { label: string; domain: string }[] = [
+    { label: "Visit Daily View", domain: "dailyview.org" },
+    { label: "Try Role CV", domain: "rolecv.com" },
+    { label: "Visit Daily Product Idea", domain: "dailyproductidea.com" },
+    { label: "Visit Conxy", domain: "conxy.co" },
+  ];
 
-  for (const [name, domain] of Object.entries(expectations)) {
-    const link = page.getByRole("link", { name: new RegExp(`^Visit ${name}`) });
+  for (const { label, domain } of expectations) {
+    const link = page.getByRole("link", { name: new RegExp(`^${label}`) });
     await expect(link).toHaveAttribute("href", new RegExp(domain));
   }
+});
+
+test("homepage includes the new founder, experiments and newsletter sections", async ({
+  page,
+}) => {
+  await page.goto("/");
+  await expect(
+    page.getByRole("heading", { name: "What we’re testing now" }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("heading", {
+      name: "Built from experience. Developed through experimentation.",
+    }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "Follow the experiments" }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("link", { name: "Read the free newsletter" }),
+  ).toHaveAttribute("href", "https://abitgamey.substack.com/");
 });
 
 test("legal pages load", async ({ page }) => {

@@ -1,4 +1,4 @@
-import ErrorOutlineIcon from "@mui/icons-material/ErrorOutlineOutlined";
+import { ErrorOutlineIcon } from "@/components/ui/icons";
 
 export function ErrorMessage({
   id,
@@ -13,7 +13,7 @@ export function ErrorMessage({
       role="alert"
       className="text-error mt-1 flex items-center gap-1.5 text-sm"
     >
-      <ErrorOutlineIcon fontSize="inherit" aria-hidden="true" />
+      <ErrorOutlineIcon />
       {children}
     </p>
   );

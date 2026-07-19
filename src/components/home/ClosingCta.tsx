@@ -9,8 +9,8 @@ export function ClosingCta() {
           See what we&rsquo;re building
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-lg text-white/90">
-          Explore the current products, try those already available or join a
-          waitlist to follow their development.
+          Explore the current products, try the live experiments or get in touch
+          if one of the problems is relevant to you.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-4">
           <Button

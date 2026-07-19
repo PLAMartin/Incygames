@@ -7,9 +7,9 @@ import { buildMetadata, pageTitle } from "@/lib/metadata";
 import { breadcrumbTrails } from "@/lib/breadcrumbs";
 
 export const metadata: Metadata = buildMetadata({
-  title: pageTitle("Products"),
+  title: pageTitle("Products and experiments"),
   description:
-    "Incygames develops independent products around specific problems: Daily View, Role CV, Daily Product Idea and Conxy.",
+    "Explore the digital products being built and tested by Incygames, including Daily View, Role CV, Daily Product Idea and Conxy.",
   path: "/products",
 });
 
@@ -27,8 +27,9 @@ export default function ProductsPage() {
         Products and experiments
       </h1>
       <p className="text-text-secondary mt-4 max-w-2xl text-lg">
-        Incygames develops independent products around specific problems. Some
-        are available today, while others are being tested, refined or explored.
+        Incygames develops focused digital products around specific real-world
+        problems. Some are live, some are being tested and some may change
+        direction as more is learned.
       </p>
 
       <div className="mt-10">

@@ -27,10 +27,10 @@ export default function CookiesPage() {
         <div className="text-text-secondary mt-10 space-y-8 text-lg">
           <section>
             <p>
-              This website does not set any cookies of its own. The contact
-              form does not submit data to a server, so no form-related
-              cookies are set either. We do use Google Analytics, but only
-              with your consent &mdash; see below.
+              This website does not set any cookies of its own. The contact form
+              does not submit data to a server, so no form-related cookies are
+              set either. We do use Google Analytics, but only with your consent
+              &mdash; see below.
             </p>
           </section>
 
@@ -42,9 +42,8 @@ export default function CookiesPage() {
               On your first visit, a banner asks whether you accept or reject
               analytics cookies. Google Analytics is not loaded, and no
               analytics cookies are set, unless you choose &ldquo;Accept&rdquo;.
-              You can change your choice at any time using &ldquo;Manage
-              cookie preferences&rdquo; in the footer, which reopens the
-              banner.
+              You can change your choice at any time using &ldquo;Manage cookie
+              preferences&rdquo; in the footer, which reopens the banner.
             </p>
           </section>
 
@@ -53,9 +52,8 @@ export default function CookiesPage() {
               Analytics cookies (only if you accept)
             </h2>
             <p className="mt-3">
-              If you accept, Google Analytics (Google Ireland Limited) sets
-              the following cookies to distinguish visitors and measure site
-              usage:
+              If you accept, Google Analytics (Google Ireland Limited) sets the
+              following cookies to distinguish visitors and measure site usage:
             </p>
             <div className="border-border mt-4 overflow-x-auto rounded-md border">
               <table className="w-full text-left text-base">
@@ -69,9 +67,7 @@ export default function CookiesPage() {
                 <tbody>
                   <tr className="border-border border-t">
                     <td className="px-4 py-2">_ga</td>
-                    <td className="px-4 py-2">
-                      Distinguishes unique visitors
-                    </td>
+                    <td className="px-4 py-2">Distinguishes unique visitors</td>
                     <td className="px-4 py-2">2 years</td>
                   </tr>
                   <tr className="border-border border-t">

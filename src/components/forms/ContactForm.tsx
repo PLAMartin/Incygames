@@ -6,6 +6,7 @@ import { SelectField } from "@/components/forms/SelectField";
 import { SuccessMessage } from "@/components/forms/SuccessMessage";
 import { ErrorMessage } from "@/components/forms/ErrorMessage";
 import { Button } from "@/components/ui/Button";
+import { trackEvent } from "@/lib/analytics";
 import {
   contactFormSchema,
   CONTACT_ENQUIRY_TYPES,
@@ -17,18 +18,27 @@ const CONTACT_EMAIL = "hello@incygames.com";
 const MIN_COMPLETION_TIME_MS = 3000;
 
 type FieldErrors = Partial<Record<string, string>>;
+type SubmitOutcome = "sent" | "mailto";
 
 export function ContactForm() {
   const mountedAt = useRef<number | null>(null);
+  const startedRef = useRef(false);
   const [errors, setErrors] = useState<FieldErrors>({});
-  const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [outcome, setOutcome] = useState<SubmitOutcome | null>(null);
   const [formError, setFormError] = useState<string | null>(null);
 
   useEffect(() => {
     mountedAt.current = Date.now();
   }, []);
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  function handleFormStart() {
+    if (startedRef.current) return;
+    startedRef.current = true;
+    trackEvent("contact_form_start", { page_path: "/contact" });
+  }
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setFormError(null);
 
@@ -77,26 +87,76 @@ export function ContactForm() {
     }
 
     setErrors({});
-
     const { name, email, enquiryType, message, company, relatedProduct } =
       result.data;
-    const subject = `Incygames enquiry: ${enquiryType}`;
-    const bodyLines = [
-      `Name: ${name}`,
-      `Email: ${email}`,
-      company ? `Company: ${company}` : null,
-      relatedProduct ? `Related product: ${relatedProduct}` : null,
-      "",
-      message,
-    ].filter((line): line is string => line !== null);
 
-    const mailtoUrl = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
+    trackEvent("contact_form_submit", { enquiry_type: enquiryType });
+    setSubmitting(true);
 
-    window.location.href = mailtoUrl;
-    setSubmitted(true);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(result.data),
+      });
+      const payload: { ok: boolean; reason?: string } = await response
+        .json()
+        .catch(() => ({ ok: false }));
+
+      if (payload.ok) {
+        trackEvent("contact_form_success", { enquiry_type: enquiryType });
+        setOutcome("sent");
+        setSubmitting(false);
+        return;
+      }
+
+      if (payload.reason === "not_configured") {
+        // Documented fallback: server email isn't configured yet, so open a
+        // pre-filled mailto instead of pretending the message was sent.
+        openMailtoFallback({
+          name,
+          email,
+          enquiryType,
+          message,
+          company,
+          relatedProduct,
+        });
+        setOutcome("mailto");
+        setSubmitting(false);
+        return;
+      }
+
+      trackEvent("contact_form_error", { enquiry_type: enquiryType });
+      setFormError(
+        "Your message could not be sent. Please try again shortly, or email us directly.",
+      );
+      setSubmitting(false);
+    } catch {
+      // Network/server unreachable: fall back rather than block the visitor.
+      openMailtoFallback({
+        name,
+        email,
+        enquiryType,
+        message,
+        company,
+        relatedProduct,
+      });
+      setOutcome("mailto");
+      setSubmitting(false);
+    }
   }
 
-  if (submitted) {
+  if (outcome === "sent") {
+    return (
+      <SuccessMessage>
+        <p className="font-medium">
+          Thank you. Your message has been sent to Incygames.
+        </p>
+      </SuccessMessage>
+    );
+  }
+
+  if (outcome === "mailto") {
     return (
       <SuccessMessage>
         <p className="font-medium">Your email application should now open.</p>
@@ -114,7 +174,17 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="space-y-6">
+    <form
+      onSubmit={handleSubmit}
+      onFocus={handleFormStart}
+      noValidate
+      className="space-y-6"
+    >
+      <p className="text-text-secondary text-sm">
+        Submitting sends your enquiry directly to Incygames. If direct sending
+        isn&rsquo;t available, we&rsquo;ll open a pre-filled email in your email
+        application instead.
+      </p>
       <FormField
         id="name"
         name="name"
@@ -209,9 +279,43 @@ export function ContactForm() {
 
       {formError ? <ErrorMessage>{formError}</ErrorMessage> : null}
 
-      <Button type="submit" variant="primary">
+      <Button
+        type="submit"
+        variant="primary"
+        loading={submitting}
+        disabled={submitting}
+      >
         Send message
       </Button>
     </form>
   );
+}
+
+function openMailtoFallback({
+  name,
+  email,
+  enquiryType,
+  message,
+  company,
+  relatedProduct,
+}: {
+  name: string;
+  email: string;
+  enquiryType: string;
+  message: string;
+  company?: string;
+  relatedProduct?: string;
+}) {
+  const subject = `Incygames enquiry: ${enquiryType}`;
+  const bodyLines = [
+    `Name: ${name}`,
+    `Email: ${email}`,
+    company ? `Company: ${company}` : null,
+    relatedProduct ? `Related product: ${relatedProduct}` : null,
+    "",
+    message,
+  ].filter((line): line is string => line !== null);
+
+  const mailtoUrl = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
+  window.location.href = mailtoUrl;
 }

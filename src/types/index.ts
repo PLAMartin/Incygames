@@ -1,66 +1,42 @@
-export type ProductStatus =
-  | "available"
-  | "beta"
-  | "waitlist"
+export type ProductStage =
+  | "live-beta"
+  | "seeking-pilot-users"
   | "prototype"
+  | "early-development"
   | "in-development"
-  | "experiment"
-  | "paused"
-  | "retired";
-
-export type ProductCategory =
-  | "independent-living"
-  | "career"
-  | "productivity"
-  | "entrepreneurship"
-  | "game"
-  | "other";
+  | "paused";
 
 export interface Product {
-  id: string;
   slug: string;
   name: string;
-  strapline: string;
+  category: string;
   summary: string;
-  category: ProductCategory;
-  status: ProductStatus;
+  strapline: string;
+  audience: string[];
+  stage: ProductStage;
+  stageLabel: string;
+  stageDescription: string;
+  externalUrl: string;
+  primaryCtaLabel: string;
+  secondaryCtaLabel?: string;
+  logoSrc?: string;
+  imageSrc?: string;
+  imageAlt: string;
+  imageFocalPoint?: string;
   featured: boolean;
-  displayOrder: number;
-
-  logoPath?: string;
-  heroImagePath?: string;
-  cardImagePath?: string;
-  altText: string;
-
-  websiteUrl?: string;
-  ctaLabel?: string;
-
+  featuredExperiment?: boolean;
   problem: string;
   solution: string;
-  audience: string[];
-  currentStage: string;
-
-  themeKey?: string;
-  launchedYear?: number;
-  lastReviewed: string;
+  whatHasBeenBuilt?: string;
+  currentTest?: string;
+  nextStep?: string;
 }
 
-export const PRODUCT_STATUS_LABELS: Record<ProductStatus, string> = {
-  available: "Available",
-  beta: "Beta",
-  waitlist: "Join the waitlist",
+export const PRODUCT_STAGE_LABELS: Record<ProductStage, string> = {
+  "live-beta": "Live beta",
+  "seeking-pilot-users": "Seeking pilot users",
   prototype: "Prototype",
+  "early-development": "Early development",
   "in-development": "In development",
-  experiment: "Experiment",
   paused: "Paused",
-  retired: "Previous product",
-};
-
-export const PRODUCT_CATEGORY_LABELS: Record<ProductCategory, string> = {
-  "independent-living": "Independent living",
-  career: "Career",
-  productivity: "Productivity",
-  entrepreneurship: "Entrepreneurship",
-  game: "Game",
-  other: "Other",
 };

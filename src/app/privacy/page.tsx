@@ -23,7 +23,7 @@ export default function PrivacyPage() {
         >
           Privacy policy
         </h1>
-        <p className="text-text-secondary mt-4">Last updated: 18 July 2026</p>
+        <p className="text-text-secondary mt-4">Last updated: 19 July 2026</p>
 
         <div className="text-text-secondary mt-10 space-y-8 text-lg">
           <section>
@@ -42,16 +42,20 @@ export default function PrivacyPage() {
               Information collected through the contact form
             </h2>
             <p className="mt-3">
-              The contact form on this website does not currently submit data to
-              a server or database operated by Incygames. When you use it, your
-              device opens a pre-filled email in your own email application,
-              addressed to Incygames, and you choose whether to send it. We only
-              receive the information contained in that email once you send it,
-              in the same way as any other email you choose to send us.
+              The contact form collects your name, email address, enquiry type,
+              message, and optionally your company/organisation and which
+              product your enquiry relates to.
             </p>
             <p className="mt-3">
-              This page will be updated if the contact form is changed to submit
-              data directly to Incygames.
+              When Incygames&rsquo; email delivery is configured, submitting the
+              form sends this information directly to Incygames through Resend,
+              our transactional email provider, over an encrypted connection. If
+              direct sending isn&rsquo;t available, your device instead opens a
+              pre-filled email in your own email application, addressed to
+              Incygames, and you choose whether to send it &mdash; in that case
+              we only receive the information in that email once you send it,
+              the same as any other email. The form always tells you which of
+              these will happen before you submit it.
             </p>
           </section>
 
@@ -88,8 +92,8 @@ export default function PrivacyPage() {
               understand how visitors use the site. Google Analytics is only
               loaded, and its cookies are only set, if you accept them via the
               cookie banner shown on your first visit. You can change your
-              choice at any time using &ldquo;Manage cookie
-              preferences&rdquo; in the footer. See our{" "}
+              choice at any time using &ldquo;Manage cookie preferences&rdquo;
+              in the footer. See our{" "}
               <a href="/cookies" className="text-accent underline">
                 cookie policy
               </a>{" "}
@@ -102,8 +106,9 @@ export default function PrivacyPage() {
               Data retention
             </h2>
             <p className="mt-3">
-              Emails sent to us are retained for as long as reasonably necessary
-              to deal with your enquiry and for our business records.
+              Enquiries sent to us, whether delivered directly or by email, are
+              retained for as long as reasonably necessary to deal with your
+              enquiry and for our business records, and are then deleted.
             </p>
           </section>
 
@@ -114,7 +119,8 @@ export default function PrivacyPage() {
             <p className="mt-3">
               Under UK data protection law, you have rights to access, correct,
               delete or restrict use of your personal information. To exercise
-              these rights, contact us using the details on our{" "}
+              these rights, including asking us to delete an enquiry you have
+              sent us, contact us using the details on our{" "}
               <a href="/contact" className="text-accent underline">
                 contact page
               </a>

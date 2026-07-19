@@ -1,55 +1,44 @@
 import { z } from "zod";
 
-const PRODUCT_STATUSES = [
-  "available",
-  "beta",
-  "waitlist",
+const PRODUCT_STAGES = [
+  "live-beta",
+  "seeking-pilot-users",
   "prototype",
+  "early-development",
   "in-development",
-  "experiment",
   "paused",
-  "retired",
-] as const;
-
-const PRODUCT_CATEGORIES = [
-  "independent-living",
-  "career",
-  "productivity",
-  "entrepreneurship",
-  "game",
-  "other",
 ] as const;
 
 export const productSchema = z.object({
-  id: z.string().min(1),
   slug: z
     .string()
     .min(1)
     .regex(/^[a-z0-9]+(-[a-z0-9]+)*$/, "slug must be kebab-case"),
   name: z.string().min(1),
-  strapline: z.string().min(1),
+  category: z.string().min(1),
   summary: z.string().min(1),
-  category: z.enum(PRODUCT_CATEGORIES),
-  status: z.enum(PRODUCT_STATUSES),
+  strapline: z.string().min(1),
+  audience: z.array(z.string().min(1)).min(1),
+  stage: z.enum(PRODUCT_STAGES),
+  stageLabel: z.string().min(1),
+  stageDescription: z.string().min(1),
+  externalUrl: z.url(),
+  primaryCtaLabel: z.string().min(1),
+  secondaryCtaLabel: z.string().min(1).optional(),
+
+  logoSrc: z.string().min(1).optional(),
+  imageSrc: z.string().min(1).optional(),
+  imageAlt: z.string().min(1),
+  imageFocalPoint: z.string().min(1).optional(),
+
   featured: z.boolean(),
-  displayOrder: z.number().int().nonnegative(),
-
-  logoPath: z.string().min(1).optional(),
-  heroImagePath: z.string().min(1).optional(),
-  cardImagePath: z.string().min(1).optional(),
-  altText: z.string().min(1),
-
-  websiteUrl: z.url().optional(),
-  ctaLabel: z.string().min(1).optional(),
+  featuredExperiment: z.boolean().optional(),
 
   problem: z.string().min(1),
   solution: z.string().min(1),
-  audience: z.array(z.string().min(1)).min(1),
-  currentStage: z.string().min(1),
-
-  themeKey: z.string().min(1).optional(),
-  launchedYear: z.number().int().optional(),
-  lastReviewed: z.iso.date(),
+  whatHasBeenBuilt: z.string().min(1).optional(),
+  currentTest: z.string().min(1).optional(),
+  nextStep: z.string().min(1).optional(),
 });
 
 export type ValidatedProduct = z.infer<typeof productSchema>;

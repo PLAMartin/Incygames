@@ -17,11 +17,11 @@ export function ProductLogo({
   product: Product;
   size?: number;
 }) {
-  if (product.logoPath) {
+  if (product.logoSrc) {
     return (
       <Image
-        src={product.logoPath}
-        alt={product.altText}
+        src={product.logoSrc}
+        alt={`${product.name} logo`}
         width={size}
         height={size}
         className="rounded-xl"
@@ -32,11 +32,11 @@ export function ProductLogo({
   return (
     <div
       role="img"
-      aria-label={product.altText}
+      aria-label={`${product.name} logo`}
       style={{
         width: size,
         height: size,
-        backgroundColor: `var(--product-accent-${product.themeKey ?? "default"}, var(--color-accent-soft))`,
+        backgroundColor: `var(--product-accent-${product.slug}, var(--color-accent-soft))`,
       }}
       className="flex items-center justify-center rounded-xl text-lg font-semibold text-white"
     >

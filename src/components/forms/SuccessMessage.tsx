@@ -1,5 +1,5 @@
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import type { ReactNode } from "react";
+import { CheckCircleIcon } from "@/components/ui/icons";
 
 export function SuccessMessage({ children }: { children: ReactNode }) {
   return (
@@ -7,7 +7,7 @@ export function SuccessMessage({ children }: { children: ReactNode }) {
       role="status"
       className="bg-success/10 text-success flex items-start gap-2 rounded-lg p-4"
     >
-      <CheckCircleIcon aria-hidden="true" />
+      <CheckCircleIcon className="mt-0.5 shrink-0" />
       <div className="text-base">{children}</div>
     </div>
   );

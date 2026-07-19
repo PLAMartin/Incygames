@@ -2,8 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import MenuIcon from "@mui/icons-material/Menu";
-import CloseIcon from "@mui/icons-material/Close";
+import { MenuIcon, CloseIcon } from "@/components/ui/icons";
 import { NAV_ITEMS } from "@/lib/navigation";
 
 const FOCUSABLE_SELECTOR =
@@ -57,11 +56,7 @@ export function MobileNavigation() {
         onClick={() => setOpen((value) => !value)}
         className="text-text-primary inline-flex min-h-11 min-w-11 items-center justify-center rounded-md"
       >
-        {open ? (
-          <CloseIcon aria-hidden="true" />
-        ) : (
-          <MenuIcon aria-hidden="true" />
-        )}
+        {open ? <CloseIcon /> : <MenuIcon />}
       </button>
 
       {open ? (

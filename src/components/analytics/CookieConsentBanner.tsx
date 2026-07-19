@@ -51,9 +51,8 @@ gtag('config', '${GA_MEASUREMENT_ID}');`}
         >
           <div className="mx-auto flex max-w-5xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-text-secondary text-sm">
-              We&rsquo;d like to use Google Analytics to understand how
-              visitors use this site. It only sets cookies if you accept. See
-              our{" "}
+              We&rsquo;d like to use Google Analytics to understand how visitors
+              use this site. It only sets cookies if you accept. See our{" "}
               <Link href="/cookies" className="text-accent hover:underline">
                 cookie policy
               </Link>{" "}

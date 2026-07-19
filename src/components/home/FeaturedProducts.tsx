@@ -11,11 +11,11 @@ export function FeaturedProducts() {
         id="featured-products-heading"
         className="text-text-primary text-3xl font-bold sm:text-4xl"
       >
-        Products we&rsquo;re developing
+        Products and experiments
       </h2>
       <p className="text-text-secondary mt-4 max-w-2xl text-lg">
-        Each product starts with a specific problem and is developed as an
-        independent service with its own audience and identity.
+        Each product starts with a specific problem. Some are live, some are
+        being tested and others are still early experiments.
       </p>
 
       <div className="mt-10">

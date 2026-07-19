@@ -23,7 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const productEntries: MetadataRoute.Sitemap = getAllProducts().map(
     (product) => ({
       url: `${SITE_URL}/products/${product.slug}`,
-      lastModified: product.lastReviewed,
+      lastModified: new Date(),
     }),
   );
 

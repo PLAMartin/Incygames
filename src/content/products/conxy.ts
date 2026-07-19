@@ -1,32 +1,34 @@
 import type { Product } from "../../types";
 
 export const conxy: Product = {
-  id: "conxy",
   slug: "conxy",
   name: "Conxy",
+  category: "Game",
   strapline: "Connect the dots, in as few moves as possible.",
   summary:
-    "A simple connection-based puzzle game built around completing challenges in as few moves as possible.",
-  category: "game",
-  status: "in-development",
+    "A connection-based puzzle game built around completing each challenge in as few moves as possible.",
+  audience: ["casual puzzle players"],
+
+  stage: "in-development",
+  stageLabel: "In development",
+  stageDescription: "An early playable concept, live at conxy.co.",
+
+  externalUrl: "https://www.conxy.co",
+  primaryCtaLabel: "Visit Conxy",
+
+  imageAlt: "Conxy — a connection-based puzzle game",
+
   featured: true,
-  displayOrder: 4,
-
-  altText: "Conxy logo",
-
-  websiteUrl: "https://www.conxy.co",
-  ctaLabel: "Learn about Conxy",
 
   problem:
     "Many puzzle games either demand a long time commitment or offer little sense of mastery once a level is solved.",
   solution:
     "Conxy is a simple connection-based puzzle game focused on completing each challenge in as few moves as possible, giving players a quick, satisfying sense of progress.",
-  audience: [
-    "Casual puzzle game players",
-    "People looking for a short, focused game break",
-  ],
-  currentStage: "In development — live at conxy.co",
 
-  themeKey: "conxy",
-  lastReviewed: "2026-07-17",
+  whatHasBeenBuilt:
+    "An early connection-based puzzle concept focused on solving each challenge in as few moves as possible.",
+  currentTest:
+    "Whether the move-count mechanic creates enough challenge, replay value and satisfaction for short game sessions.",
+  nextStep:
+    "Develop a small set of playable levels and observe completion, replay and abandonment behaviour.",
 };

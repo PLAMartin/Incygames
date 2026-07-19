@@ -25,22 +25,22 @@ export default async function Image() {
       <img
         src={logoSrc}
         alt=""
-        width={220}
-        height={220}
-        style={{ borderRadius: 40 }}
+        width={160}
+        height={160}
+        style={{ borderRadius: 32 }}
       />
       <div
         style={{
-          marginTop: 40,
-          fontSize: 64,
+          marginTop: 32,
+          fontSize: 56,
           fontWeight: 700,
           color: "#202E6B",
         }}
       >
-        Incygames
+        About Incygames
       </div>
-      <div style={{ marginTop: 12, fontSize: 32, color: "#5B6482" }}>
-        Useful software for real-world problems
+      <div style={{ marginTop: 12, fontSize: 30, color: "#5B6482" }}>
+        A founder-led product studio in Bath
       </div>
     </div>,
     { ...size },

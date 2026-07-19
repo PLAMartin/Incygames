@@ -24,5 +24,6 @@ export function resetStoredCookieConsent(): void {
 
 export function subscribeToCookieConsent(callback: () => void): () => void {
   window.addEventListener(COOKIE_CONSENT_CHANGE_EVENT, callback);
-  return () => window.removeEventListener(COOKIE_CONSENT_CHANGE_EVENT, callback);
+  return () =>
+    window.removeEventListener(COOKIE_CONSENT_CHANGE_EVENT, callback);
 }

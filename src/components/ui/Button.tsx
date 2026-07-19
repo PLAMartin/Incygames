@@ -1,6 +1,6 @@
 import type { ReactNode, ButtonHTMLAttributes } from "react";
 import Link from "next/link";
-import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import { OpenInNewIcon } from "@/components/ui/icons";
 
 type ButtonVariant = "primary" | "secondary" | "text" | "external";
 
@@ -34,6 +34,7 @@ interface ButtonAsButton
 interface ButtonAsLink extends CommonProps {
   href: string;
   external?: boolean;
+  onClick?: () => void;
 }
 
 export function Button(props: ButtonAsButton | ButtonAsLink) {
@@ -41,18 +42,18 @@ export function Button(props: ButtonAsButton | ButtonAsLink) {
   const classes = `${BASE_CLASSES} ${VARIANT_CLASSES[variant]} ${className}`;
 
   if ("href" in props && props.href) {
-    const { href, external } = props;
+    const { href, external, onClick } = props;
     if (external) {
       return (
-        <a href={href} className={classes} rel="noopener">
+        <a href={href} className={classes} rel="noopener" onClick={onClick}>
           {children}
-          <OpenInNewIcon fontSize="small" aria-hidden="true" />
+          <OpenInNewIcon />
           <span className="sr-only">(opens external site)</span>
         </a>
       );
     }
     return (
-      <Link href={href} className={classes}>
+      <Link href={href} className={classes} onClick={onClick}>
         {children}
       </Link>
     );

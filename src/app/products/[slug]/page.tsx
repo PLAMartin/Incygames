@@ -4,9 +4,10 @@ import { Section } from "@/components/ui/Section";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { ProductHero } from "@/components/products/ProductHero";
 import { ProductStatusBadge } from "@/components/products/ProductStatusBadge";
-import { ProductCard } from "@/components/products/ProductCard";
 import { ExternalLink } from "@/components/ui/ExternalLink";
-import { PRODUCT_CATEGORY_LABELS } from "@/types";
+import { Button } from "@/components/ui/Button";
+import { TextLink } from "@/components/ui/TextLink";
+import { ProductJsonLd } from "@/components/seo/StructuredData";
 import {
   getAllProducts,
   getProductBySlug,
@@ -54,12 +55,13 @@ export default async function ProductDetailPage({
 
   return (
     <Section tone="primary" ariaLabelledBy="product-heading">
+      <ProductJsonLd product={product} />
       <Breadcrumbs items={productBreadcrumbTrail(product)} />
 
       <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
         <div>
           <p className="text-text-secondary text-sm font-medium">
-            {PRODUCT_CATEGORY_LABELS[product.category]}
+            {product.category}
           </p>
           <h1
             id="product-heading"
@@ -71,15 +73,16 @@ export default async function ProductDetailPage({
             {product.strapline}
           </p>
           <div className="mt-4">
-            <ProductStatusBadge status={product.status} />
+            <ProductStatusBadge
+              stage={product.stage}
+              hiddenSupportingText={product.stageDescription}
+            />
           </div>
-          {product.websiteUrl ? (
-            <p className="mt-6">
-              <ExternalLink href={product.websiteUrl} className="text-lg">
-                {product.ctaLabel ?? `Visit ${product.name}`}
-              </ExternalLink>
-            </p>
-          ) : null}
+          <p className="mt-6">
+            <ExternalLink href={product.externalUrl} className="text-lg">
+              {product.primaryCtaLabel}
+            </ExternalLink>
+          </p>
         </div>
 
         <ProductHero product={product} />
@@ -103,6 +106,39 @@ export default async function ProductDetailPage({
               {product.solution}
             </p>
           </section>
+
+          {product.whatHasBeenBuilt ? (
+            <section className="mt-10 lg:mt-0">
+              <h2 className="text-text-primary text-2xl font-semibold">
+                What has been built
+              </h2>
+              <p className="text-text-secondary mt-3 text-lg">
+                {product.whatHasBeenBuilt}
+              </p>
+            </section>
+          ) : null}
+
+          {product.currentTest ? (
+            <section className="mt-10 lg:mt-0">
+              <h2 className="text-text-primary text-2xl font-semibold">
+                What is being tested
+              </h2>
+              <p className="text-text-secondary mt-3 text-lg">
+                {product.currentTest}
+              </p>
+            </section>
+          ) : null}
+
+          {product.nextStep ? (
+            <section className="mt-10 lg:mt-0">
+              <h2 className="text-text-primary text-2xl font-semibold">
+                What happens next
+              </h2>
+              <p className="text-text-secondary mt-3 text-lg">
+                {product.nextStep}
+              </p>
+            </section>
+          ) : null}
         </div>
 
         <div className="space-y-8">
@@ -112,32 +148,48 @@ export default async function ProductDetailPage({
             </h2>
             <ul className="text-text-secondary mt-3 space-y-1 text-base">
               {product.audience.map((item) => (
-                <li key={item}>{item}</li>
+                <li key={item} className="first-letter:uppercase">
+                  {item}
+                </li>
               ))}
             </ul>
-          </section>
-          <section>
-            <h2 className="text-text-primary text-lg font-semibold">
-              Current status
-            </h2>
-            <p className="text-text-secondary mt-3 text-base">
-              {product.currentStage}
-            </p>
           </section>
         </div>
       </div>
 
-      {related.length > 0 ? (
-        <div className="mt-20">
-          <h2 className="text-text-primary text-2xl font-semibold">
-            Related products
-          </h2>
-          <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {related.map((relatedProduct) => (
-              <ProductCard key={relatedProduct.slug} product={relatedProduct} />
-            ))}
-          </div>
+      <div className="border-border mt-20 rounded-2xl border p-8 text-center sm:p-12">
+        <h2 className="text-text-primary text-2xl font-bold">
+          See what we&rsquo;re building
+        </h2>
+        <p className="text-text-secondary mx-auto mt-3 max-w-xl text-lg">
+          Explore the current products, try the live experiments or get in touch
+          if this problem is relevant to you.
+        </p>
+        <div className="mt-6 flex flex-wrap justify-center gap-4">
+          <Button href={product.externalUrl} variant="primary" external>
+            {product.primaryCtaLabel}
+          </Button>
+          <Button href="/contact" variant="secondary">
+            Contact Incygames
+          </Button>
         </div>
+      </div>
+
+      {related.length > 0 ? (
+        <nav aria-label="Other products" className="mt-12">
+          <h2 className="text-text-primary text-lg font-semibold">
+            Other products
+          </h2>
+          <ul className="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-base">
+            {related.map((relatedProduct) => (
+              <li key={relatedProduct.slug}>
+                <TextLink href={`/products/${relatedProduct.slug}`}>
+                  {relatedProduct.name}
+                </TextLink>
+              </li>
+            ))}
+          </ul>
+        </nav>
       ) : null}
     </Section>
   );

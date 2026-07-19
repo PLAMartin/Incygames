@@ -2,35 +2,35 @@ import { Section } from "@/components/ui/Section";
 
 const STAGES = [
   {
-    title: "Find a real problem",
+    title: "Find a worthwhile problem",
     description:
       "Start with something people regularly find confusing, frustrating or unnecessarily difficult.",
   },
   {
     title: "Build the simplest useful version",
     description:
-      "Create enough of the product to demonstrate the idea and allow people to experience it.",
+      "Create enough of the product for people to understand and experience the idea.",
   },
   {
-    title: "Test it with real users",
+    title: "Test it with real people",
     description:
-      "Use customer behaviour and feedback to decide what to improve, change or stop.",
+      "Use behaviour and feedback to learn what is useful, unclear or unnecessary.",
   },
   {
-    title: "Develop what proves useful",
+    title: "Develop what proves valuable",
     description:
-      "Invest further where the product shows evidence of solving a worthwhile problem.",
+      "Invest further where there is evidence that the product solves a worthwhile problem.",
   },
 ];
 
 export function HowItWorks() {
   return (
-    <Section tone="primary" ariaLabelledBy="how-it-works-heading">
+    <Section tone="secondary" ariaLabelledBy="how-it-works-heading">
       <h2
         id="how-it-works-heading"
         className="text-text-primary text-3xl font-bold sm:text-4xl"
       >
-        From problem to practical product
+        How Incygames works
       </h2>
 
       <ol className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -48,6 +48,11 @@ export function HowItWorks() {
           </li>
         ))}
       </ol>
+
+      <p className="text-text-primary mt-12 text-lg font-medium">
+        Useful before impressive. Clear before complicated. Tested before
+        scaled.
+      </p>
     </Section>
   );
 }

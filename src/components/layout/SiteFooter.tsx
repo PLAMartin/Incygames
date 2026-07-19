@@ -39,7 +39,7 @@ export function SiteFooter() {
             Incygames
           </Link>
           <p className="text-text-secondary mt-3 text-sm">
-            Simple, useful and fun software for real-world problems.
+            An independent, founder-led product studio in Bath.
           </p>
         </div>
 

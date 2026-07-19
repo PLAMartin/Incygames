@@ -67,6 +67,27 @@ export default function AboutPage() {
             Incygames is currently founder-led and works with specialist
             collaborators and technology partners where required.
           </p>
+          <p className="text-text-secondary mt-3 text-lg">
+            Phil writes about product development at{" "}
+            <a
+              href="https://abitgamey.substack.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent hover:underline"
+            >
+              A Bit Gamey
+            </a>{" "}
+            and more about his background at{" "}
+            <a
+              href="https://www.philmartin.net"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent hover:underline"
+            >
+              philmartin.net
+            </a>
+            .
+          </p>
         </section>
 
         <section className="mt-12">

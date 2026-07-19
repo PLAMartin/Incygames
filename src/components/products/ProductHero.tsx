@@ -8,9 +8,9 @@ export function ProductHero({ product }: { product: Product }) {
       <Image
         src={product.imageSrc}
         alt={product.imageAlt}
-        width={1200}
-        height={630}
-        className="w-full rounded-2xl object-cover"
+        width={1600}
+        height={900}
+        className="aspect-[16/9] w-full rounded-2xl object-cover"
         style={
           product.imageFocalPoint
             ? { objectPosition: product.imageFocalPoint }

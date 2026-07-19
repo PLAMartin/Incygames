@@ -19,7 +19,9 @@ export const dailyView: Product = {
   secondaryCtaLabel: "Try the demonstration or ask about joining the pilot.",
 
   logoSrc: "/images/products/daily-view/icon.png",
-  imageAlt: "Daily View — a calm daily display screen",
+  imageSrc: "/images/products/daily-view/daily-view-card.webp",
+  imageAlt:
+    "An older woman relaxing in an armchair at home, looking at a tablet on a stand showing the Daily View display: today's date and time, a short list of today's activities including lunch and a carer visit, and what happens next.",
 
   featured: true,
   featuredExperiment: true,

@@ -16,7 +16,9 @@ export const conxy: Product = {
   externalUrl: "https://www.conxy.co",
   primaryCtaLabel: "Visit Conxy",
 
-  imageAlt: "Conxy — a connection-based puzzle game",
+  imageSrc: "/images/products/conxy/conxy-card.webp",
+  imageAlt:
+    "A young man relaxing on a sofa, playing Conxy on his phone: a grid of coloured dots being connected, with a moves counter and per-colour move budgets shown at the top of the screen.",
 
   featured: true,
 

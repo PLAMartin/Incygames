@@ -19,7 +19,9 @@ export const roleCv: Product = {
   secondaryCtaLabel: "Try the beta and share feedback.",
 
   logoSrc: "/images/products/role-cv/icon.png",
-  imageAlt: "Role CV — a role-fit assessment screen",
+  imageSrc: "/images/products/role-cv/role-cv-card.webp",
+  imageAlt:
+    "A candidate CV card being matched against a Role Match card showing role requirements and a 92% Good Fit score, under the Role CV logo and the tagline 'Better job matching, built around the role.'",
 
   featured: true,
   featuredExperiment: true,

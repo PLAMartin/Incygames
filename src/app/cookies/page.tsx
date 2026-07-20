@@ -29,31 +29,17 @@ export default function CookiesPage() {
             <p>
               This website does not set any cookies of its own. The contact form
               does not submit data to a server, so no form-related cookies are
-              set either. We do use Google Analytics, but only with your consent
-              &mdash; see below.
+              set either. We do use Google Analytics &mdash; see below.
             </p>
           </section>
 
           <section>
             <h2 className="text-text-primary text-2xl font-semibold">
-              Cookie consent
+              Analytics cookies
             </h2>
             <p className="mt-3">
-              On your first visit, a banner asks whether you accept or reject
-              analytics cookies. Google Analytics is not loaded, and no
-              analytics cookies are set, unless you choose &ldquo;Accept&rdquo;.
-              You can change your choice at any time using &ldquo;Manage cookie
-              preferences&rdquo; in the footer, which reopens the banner.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-text-primary text-2xl font-semibold">
-              Analytics cookies (only if you accept)
-            </h2>
-            <p className="mt-3">
-              If you accept, Google Analytics (Google Ireland Limited) sets the
-              following cookies to distinguish visitors and measure site usage:
+              Google Analytics (Google Ireland Limited) sets the following
+              cookies to distinguish visitors and measure site usage:
             </p>
             <div className="border-border mt-4 overflow-x-auto rounded-md border">
               <table className="w-full text-left text-base">

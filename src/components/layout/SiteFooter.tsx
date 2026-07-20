@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
-import { ManageCookiesLink } from "@/components/analytics/ManageCookiesLink";
 import { getAllProducts } from "@/lib/products";
 
 const COMPANY_LINKS = [
@@ -88,9 +87,6 @@ export function SiteFooter() {
                 </Link>
               </li>
             ))}
-            <li>
-              <ManageCookiesLink className="text-text-secondary hover:text-accent text-left hover:underline" />
-            </li>
           </ul>
         </div>
       </Container>

@@ -3,7 +3,7 @@ import { Geist } from "next/font/google";
 import { SiteHeader } from "@/components/navigation/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { StructuredData } from "@/components/seo/StructuredData";
-import { CookieConsentBanner } from "@/components/analytics/CookieConsentBanner";
+import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { buildMetadata } from "@/lib/metadata";
 import "./globals.css";
 
@@ -39,7 +39,7 @@ export default function RootLayout({
           {children}
         </main>
         <SiteFooter />
-        <CookieConsentBanner />
+        <GoogleAnalytics />
       </body>
     </html>
   );

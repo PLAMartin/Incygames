@@ -88,12 +88,8 @@ export default function PrivacyPage() {
               Analytics
             </h2>
             <p className="mt-3">
-              With your consent, this website uses Google Analytics to
-              understand how visitors use the site. Google Analytics is only
-              loaded, and its cookies are only set, if you accept them via the
-              cookie banner shown on your first visit. You can change your
-              choice at any time using &ldquo;Manage cookie preferences&rdquo;
-              in the footer. See our{" "}
+              This website uses Google Analytics to understand how visitors use
+              the site. See our{" "}
               <a href="/cookies" className="text-accent underline">
                 cookie policy
               </a>{" "}

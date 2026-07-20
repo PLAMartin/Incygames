@@ -17,6 +17,7 @@ export const dailyProductIdea: Product = {
   externalUrl: "https://www.dailyproductidea.com",
   primaryCtaLabel: "Visit Daily Product Idea",
 
+  logoSrc: "/images/products/daily-product-idea/icon.png",
   imageSrc: "/images/products/daily-product-idea/daily-product-idea-card.webp",
   imageAlt:
     "A calendar page titled 'Daily Product Idea' reading 'One fresh idea. Every day.', surrounded by idea note cards, with a sample idea card below for an 'AI Study Buddy' concept.",

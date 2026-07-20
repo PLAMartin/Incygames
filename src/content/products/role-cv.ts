@@ -21,7 +21,7 @@ export const roleCv: Product = {
   logoSrc: "/images/products/role-cv/icon.png",
   imageSrc: "/images/products/role-cv/role-cv-card.webp",
   imageAlt:
-    "A candidate CV card being matched against a Role Match card showing role requirements and a 92% Good Fit score, under the Role CV logo and the tagline 'Better job matching, built around the role.'",
+    "A CV card being matched against a Job Role card listing required skills, experience, qualifications and attributes, joined by interlocking puzzle pieces and a check mark, under the Role CV logo and the tagline 'Better matches. Better outcomes.'",
 
   featured: true,
   featuredExperiment: true,

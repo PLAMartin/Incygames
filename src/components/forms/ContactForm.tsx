@@ -13,8 +13,7 @@ import {
   CONTACT_RELATED_PRODUCTS,
 } from "@/lib/validation";
 
-// Placeholder until a real Incygames contact address is confirmed.
-const CONTACT_EMAIL = "hello@incygames.com";
+const CONTACT_EMAIL = "phil@incygames.com";
 const MIN_COMPLETION_TIME_MS = 3000;
 
 type FieldErrors = Partial<Record<string, string>>;
